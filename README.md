@@ -10,19 +10,65 @@ Open Container Initiative : Standardize container format and runtime , vendor ne
 
 Containers provide scalable, self healing and portable apps
 
-Overall service is called registry, then in the registry we can have our own repositories (repo in short)
+## Installation
 
-Docker machine : Provisions docker hosts/engines
-Docker compose : Compose multi container apps
-Docker swarm : Scheduled containers over multiple docker engines
-Tutum : GUI to deploy infra to on prem or public cloud
+### Homebrew
 
+I am using Homebrew for package management in my Macbook. 
 
-## A standard installation
+Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple’s macOS operating system. It is known as the missing package manager for macOS. 
 
-DOCKER CLIENT => talks to (API CALLS)  => Docker DAEMON
+For details on how to install it please check [here](https://brew.sh/)
 
-docker version
+### Install Docker using Homebrew
+
+* Install Docker
+
+Open up a MACOS terminal window and then perform the command as shown below
+
+<pre><code>
+dtimuralp-a02:/ dtimuralp$ <b>brew cask install docker</b>
+</code></pre>
+
+* Run Docker Daemon 
+
+Navigate to Applications folder as shown below
+dtimuralp-a02:~ dtimuralp$cd Applications
+
+Then perform command below
+
+<pre><code>
+dtimuralp-a02:/ dtimuralp$ <b>open docker.app</b>
+</code></pre>
+
+You should see a Docker icon in your task bar in MACOS GUI as shown below
+
+[](docker.png)
+
+Docker Client ===== API Calls ===> Docker Daemon
+
+<pre><code>
+dtimuralp-a02:~ <b>dtimuralp$ docker version</b>
+Client: Docker Engine - Community
+ Version:           <b>18.09.2</b>
+ API version:       1.39
+ Go version:        go1.10.8
+ Git commit:        6247962
+ Built:             Sun Feb 10 04:12:39 2019
+ OS/Arch:           darwin/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          18.09.2
+  API version:      1.39 (minimum version 1.12)
+  Go version:       go1.10.6
+  Git commit:       6247962
+  Built:            Sun Feb 10 04:13:06 2019
+  OS/Arch:          linux/amd64
+  Experimental:     true
+dtimuralp-a02:~ dtimuralp$ 
+</code></pre>
 
 docker info
 
@@ -103,3 +149,10 @@ docker exec -it dumlu1 sh
 docker run -d --name dumlu --network testbridge -p 5000:8080 nigelpoulton/pluralsight-docker-ci
 
 docker port dumlu
+
+# Appendix
+
+Using Symlinks : 
+Create = > ln -s /Users/dtimuralp /awesome
+
+Delete = > unlink /awesome
