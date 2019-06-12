@@ -65,7 +65,7 @@ Server: Docker Engine - Community
   Built:            Sun Feb 10 04:13:06 2019
   OS/Arch:          linux/amd64
   Experimental:     true
-dtimuralp-a02:~ dtimuralp$ 
+dtimuralp-a02:Applications dtimuralp$
 </code></pre>
 
 Docker Client ===== API Calls ===> Docker Daemon
