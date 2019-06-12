@@ -60,7 +60,7 @@ Client: Docker Engine - Community
 
 Server: Docker Engine - Community
  Engine:
-  Version:          18.09.2
+  Version:          <b>18.09.2</b>
   API version:      1.39 (minimum version 1.12)
   Go version:       go1.10.6
   Git commit:       6247962
