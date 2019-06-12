@@ -43,7 +43,7 @@ dtimuralp-a02:/ dtimuralp$ <b>open docker.app</b>
 
 You should see a Docker icon in your task bar in MACOS GUI as shown below
 
-[](dockericon.png)
+![](dockericon.png)
 
 Docker Client ===== API Calls ===> Docker Daemon
 
