@@ -48,7 +48,7 @@ You should see a Docker icon in your task bar in MACOS GUI as shown below
 Docker Client ===== API Calls ===> Docker Daemon
 
 <pre><code>
-dtimuralp-a02:~ <b>dtimuralp$ docker version</b>
+dtimuralp-a02:Applications dtimuralp$ <b>docker version</b>
 Client: Docker Engine - Community
  Version:           <b>18.09.2</b>
  API version:       1.39
