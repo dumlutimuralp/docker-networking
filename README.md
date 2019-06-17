@@ -45,6 +45,8 @@ You should see a Docker icon in your task bar in MACOS GUI as shown below
 
 ![](dockericon.png)
 
+* Check the docker version : :
+
 <pre><code>
 dtimuralp-a02:Applications dtimuralp$ <b>docker version</b>
 Client: Docker Engine - Community
@@ -68,7 +70,122 @@ Server: Docker Engine - Community
 dtimuralp-a02:Applications dtimuralp$
 </code></pre>
 
-Docker Client ===== API Calls ===> Docker Daemon
+Docker Client ===== API Calls ===> Docker Server (Daemon) , hence there are two docker versions are shown in this output.
+
+<pre><code>
+dtimuralp-a02:~ dtimuralp$ <b>docker info</b>
+Containers: 6
+ Running: 0
+ Paused: 0
+ Stopped: 6
+Images: 6
+Server Version: 18.09.2
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ <b>Network: bridge host ipvlan macvlan null overlay</b>
+ Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9754871865f7fe2f4e74d43e2fc7ccd237edcbce
+runc version: 09c8266bf2fcf9519a651b04ae54c967b9ab86ec
+init version: fec3683
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.9.125-linuxkit
+Operating System: Docker for Mac
+OSType: linux
+Architecture: x86_64
+CPUs: 4
+Total Memory: 1.952GiB
+Name: linuxkit-025000000001
+ID: ADFW:REBN:BHN6:OQ5Z:3OO7:CBDL:YUF7:QAQK:DKR7:RRS3:ITT4:VZVC
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 24
+ Goroutines: 50
+ System Time: 2019-06-17T14:59:43.4842239Z
+ EventsListeners: 2
+HTTP Proxy: gateway.docker.internal:3128
+HTTPS Proxy: gateway.docker.internal:3129
+Registry: https://index.docker.io/v1/
+Labels:
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+Product License: Community Engine
+
+dtimuralp-a02:~ dtimuralp$ 
+</code></pre>
+
+* Check which Docker networks come by default :
+
+<pre><code>
+dtimuralp-a02:~ dtimuralp$ <b>docker network ls>/b>
+NETWORK ID          NAME                DRIVER              SCOPE
+b5a32321deb2        <b>bridge</b>              <b>bridge</b>              <b>local</b>
+7014fee64b30        host                host                local
+17f1c5830fc3        none                null                local
+dtimuralp-a02:~ dtimuralp$
+</code></pre>
+
+Scope "local means, single-host mode. We will focus on the "bridge" for now.
+
+* Inspect the "bridge" config
+
+<pre><code>
+dtimuralp-a02:~ dtimuralp$ <b>docker inspect bridge</b>
+[
+    {
+        "Name": "bridge",
+        "Id": "b5a32321deb2281ac40e2943c89acc72b2f21cd95db3062b1a9ff01b6e42d730",
+        "Created": "2019-06-15T08:17:26.197777261Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+dtimuralp-a02:~ dtimuralp$ 
+</code></pre>
+
+
 
 docker info
 
