@@ -1,3 +1,5 @@
+This guide provides the basic steps on installing Docker Community Edition on Ubuntu 16.04 and also basic networking commands in Docker.
+
 # Terminology
 
 Dotcloud => Docker (Dock Worker)
@@ -9,8 +11,6 @@ Components of Docker is written in Go or Golang
 Open Container Initiative : Standardize container format and runtime , vendor neutral, platform neutral (OCI operates under Linux Foundation)
 
 Containers provide scalable, self healing and portable apps
-
-# Installating Docker
 
 ## Preperation
 
