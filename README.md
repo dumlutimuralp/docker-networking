@@ -10,9 +10,67 @@ Open Container Initiative : Standardize container format and runtime , vendor ne
 
 Containers provide scalable, self healing and portable apps
 
-## Installation
+## Preperation
 
-### Ubuntu 16.04
+I used a single Ubuntu 16.04.5 LTS based virtual machine on VMware ESX.
+
+* SSH to Ubuntu virtual machine and then escalate to root
+
+<pre><code>
+vmware@ubuntu26:~$ 
+vmware@ubuntu26:~$ <b>sudo -H bash</b>
+root@ubuntu26:/home/vmware#
+</code></pre>
+
+*  Ensure the integrity and authenticity of the images that are downloaded from Docker Hub. GPG is based on Public Key Cryptogragphy (more info is [here](https://www.gnupg.org/)
+
+<pre><code>
+root@ubuntu26:/home/vmware#<b>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</b>
+OK
+</code></pre>
+
+* Configure Docker Hub as the APT source rather than the Ubuntu 16.04 repository
+
+<pre><code>
+root@ubuntu26:/home/vmware# <b>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</b>
+root@ubuntu26:/home/vmware#
+</code></pre>
+
+* Update Docker packages
+
+<pre><code>
+root@ubuntu26:/home/vmware# <b>apt-get update</b>
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+|
+|
+Output Omitted
+|
+|
+Get:48 http://us.archive.ubuntu.com/ubuntu xenial-backports/universe Translation-en [4,184 B]
+Fetched 30.0 MB in 9s (3,233 kB/s)
+Reading package lists... Done
+root@ubuntu26:/home/vmware#
+</code></pre>
+
+* Make sure the repository for Docker is Docker repo rather than Ubuntu repo
+
+<pre><code>
+root@ubuntu26:/home/vmware# <b>apt-cache policy docker-ce</b>
+docker-ce:
+  <b>Installed: (none)</b>
+  Candidate: 5:18.09.6~3-0~ubuntu-xenial
+  Version table:
+     5:18.09.6~3-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+    |
+    Output Omitted
+    |
+     17.03.0~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+root@ubuntu26:/home/vmware# ^C
+</code></pre>
+
 
 ### Install Docker 
 
