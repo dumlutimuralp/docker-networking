@@ -24,7 +24,7 @@ vmware@ubuntu26:~$ <b>sudo -H bash</b>
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-*  Ensure the integrity and authenticity of the images that are downloaded from Docker Hub. GPG is based on Public Key Cryptogragphy (more info is [here](https://www.gnupg.org/)
+*  Ensure the integrity and authenticity of the images that are downloaded from Docker Hub. GPG is based on Public Key Cryptogragphy (more info is [here](https://www.gnupg.org/))
 
 <pre><code>
 root@ubuntu26:/home/vmware#<b>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</b>
@@ -244,7 +244,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-Seems like no containers to me.
+No containers running by default.
 
 * Check whether if there is any container images in the local repository
 
@@ -254,15 +254,18 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-* Check which Docker networks come by default :
+No images in the local repository by default.
+
+* Check which Docker networks exist by default :
 
 <pre><code>
-dtimuralp-a02:~ dtimuralp$ <b>docker network ls>/b>
+root@ubuntu26:/home/vmware# docker network ls
 NETWORK ID          NAME                DRIVER              SCOPE
-b5a32321deb2        <b>bridge</b>              <b>bridge</b>              <b>local</b>
-7014fee64b30        host                host                local
-17f1c5830fc3        none                null                local
-dtimuralp-a02:~ dtimuralp$
+8dc12dd156a0        <b>bridge</b>              <b>bridge</b>              <b>local</b>
+f4238f561257        host                host                local
+70c020e17c5e        none                null                local
+root@ubuntu26:/home/vmware#
+
 </code></pre>
 
 Scope "local means, single-host mode. We will focus on the "bridge" for now.
