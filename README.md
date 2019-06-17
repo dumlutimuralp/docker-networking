@@ -119,46 +119,73 @@ Processing triggers for libc-bin (2.23-0ubuntu10) ...
 Processing triggers for systemd (229-4ubuntu21.4) ...
 Processing triggers for ureadahead (0.100.0-19) ...
 root@ubuntu26:/home/vmware#
-
 </code></pre>
+
+* Make sure Docker is running
+
+<pre><code>
+root@ubuntu26:/home/vmware# sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   <b>Active: active (running)</b> since Mon 2019-06-17 12:33:25 EDT; 3min 48s ago
+     Docs: https://docs.docker.com
+ Main PID: 3305 (dockerd)
+   CGroup: /system.slice/docker.service
+           └─3305 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.322015384-04:00" level=warning msg="Your kernel does not support swap memory limit"
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.322303782-04:00" level=warning msg="Your kernel does not support cgroup rt period"
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.322529745-04:00" level=warning msg="Your kernel does not support cgroup rt runtime"
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.323451458-04:00" level=info msg="Loading containers: start."
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.867494590-04:00" level=info <b>msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip</b>
+Jun 17 12:33:24 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:24.944308261-04:00" level=info msg="Loading containers: done."
+Jun 17 12:33:25 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:25.012992693-04:00" level=info msg="Docker daemon" commit=481bc77 graphdriver(s)=overlay2 version=18.09.6
+Jun 17 12:33:25 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:25.013579127-04:00" level=info msg="Daemon has completed initialization"
+Jun 17 12:33:25 ubuntu26 dockerd[3305]: time="2019-06-17T12:33:25.038175853-04:00" level=info msg="API listen on /var/run/docker.sock"
+Jun 17 12:33:25 ubuntu26 systemd[1]: Started Docker Application Container Engine.
+root@ubuntu26:/home/vmware#
+</code></pre>
+
+The first three error messages are about being able to put memory, CPU and swap limitations to containers. Means that the Kernel seems to be old for this version of Docker. More info [here](https://support.plesk.com/hc/en-us/articles/115004786934-Docker-service-shows-warnings-Your-kernel-does-not-support-cgroup-rt-runtime) and also [here](https://docs.docker.com/config/containers/resource_constraints/). It is ok as I am not going to use that feature in Docker for now.
+
 
 * Check the docker version : :
 
 <pre><code>
 dtimuralp-a02:Applications dtimuralp$ <b>docker version</b>
-Client: Docker Engine - Community
- Version:           <b>18.09.2</b>
+root@ubuntu26:/home/vmware# docker version
+Client:
+ Version:           <b>18.09.6</b>
  API version:       1.39
  Go version:        go1.10.8
- Git commit:        6247962
- Built:             Sun Feb 10 04:12:39 2019
- OS/Arch:           darwin/amd64
+ Git commit:        481bc77
+ Built:             Sat May  4 02:35:27 2019
+ OS/Arch:           linux/amd64
  Experimental:      false
 
 Server: Docker Engine - Community
  Engine:
-  Version:          <b>18.09.2</b>
+  Version:          <b>18.09.6</b>
   API version:      1.39 (minimum version 1.12)
-  Go version:       go1.10.6
-  Git commit:       6247962
-  Built:            Sun Feb 10 04:13:06 2019
+  Go version:       go1.10.8
+  Git commit:       481bc77
+  Built:            Sat May  4 01:59:36 2019
   OS/Arch:          linux/amd64
-  Experimental:     true
-dtimuralp-a02:Applications dtimuralp$
+  Experimental:     false
+root@ubuntu26:/home/vmware#
 </code></pre>
 
 Docker Client ===== API Calls ===> Docker Server (Daemon) , hence there are two docker versions are shown in this output.
 
 * Check Docker information
 
-<pre><code>
-dtimuralp-a02:~ dtimuralp$ <b>docker info</b>
-Containers: 6
+<pre><code>root@ubuntu26:/home/vmware# <b>docker info</b>
+Containers: 0
  Running: 0
  Paused: 0
- Stopped: 6
-Images: 6
-Server Version: 18.09.2
+ Stopped: 0
+Images: 0
+Server Version: 18.09.6
 Storage Driver: overlay2
  Backing Filesystem: extfs
  Supports d_type: true
@@ -167,47 +194,43 @@ Logging Driver: json-file
 Cgroup Driver: cgroupfs
 Plugins:
  Volume: local
- <b>Network: bridge host ipvlan macvlan null overlay</b>
+<b>Network: bridge host macvlan null overlay</b>
  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
-Swarm: <b>inactive</b>
-Runtimes: <b>runc</b> 
+<b>Swarm: inactive</b>
+<b>Runtimes: runc</b>
 Default Runtime: runc
 Init Binary: docker-init
-containerd version: 9754871865f7fe2f4e74d43e2fc7ccd237edcbce
-runc version: 09c8266bf2fcf9519a651b04ae54c967b9ab86ec
+containerd version: bb71b10fd8f58240ca47fbb579b9d1028eea7c84
+runc version: 2b18fe1d885ee5083ef9f0838fee39b62d653e30
 init version: fec3683
 Security Options:
+ apparmor
  seccomp
   Profile: default
-Kernel Version: 4.9.125-linuxkit
-Operating System: <b>Docker for Mac</b>
+Kernel Version: 4.4.0-131-generic
+Operating System: Ubuntu 16.04.5 LTS
 OSType: linux
 Architecture: x86_64
-CPUs: 4
-Total Memory: 1.952GiB
-Name: linuxkit-025000000001
-ID: ADFW:REBN:BHN6:OQ5Z:3OO7:CBDL:YUF7:QAQK:DKR7:RRS3:ITT4:VZVC
+CPUs: 2
+Total Memory: 3.859GiB
+Name: ubuntu26
+ID: 6CX6:X6JC:7QVT:KKOG:ZZO7:35XC:WLVZ:EK3Z:XD7J:CFID:CRNI:7OBA
 Docker Root Dir: /var/lib/docker
 Debug Mode (client): false
-Debug Mode (server): true
- File Descriptors: 24
- Goroutines: 50
- System Time: 2019-06-17T14:59:43.4842239Z
- EventsListeners: 2
-HTTP Proxy: gateway.docker.internal:3128
-HTTPS Proxy: gateway.docker.internal:3129
+Debug Mode (server): false
 Registry: https://index.docker.io/v1/
 Labels:
-Experimental: true
+Experimental: false
 Insecure Registries:
  127.0.0.0/8
 Live Restore Enabled: false
 Product License: Community Engine
 
-dtimuralp-a02:~ dtimuralp$ 
+<b>WARNING: No swap limit support</b>
+root@ubuntu26:/home/vmware#
 </code></pre>
 
-Docker Swarm shows up as inactive cause I am using a single host.
+Docker Swarm shows up as inactive cause I am goint to use a single host for now.
 
 Runc is Docker' s container runtime which is also donated to the Open Container Project (OCP) . For more info please check [here](https://blog.docker.com/2015/06/runc/)
 
@@ -216,16 +239,20 @@ Docker Operations System is Docker for MAC since I installed it on my MAC.
 * Check whether if any containers run by default
 
 <pre><code>
-dtimuralp-a02:~ dtimuralp$ <b>docker ps</b>
+root@ubuntu26:/home/vmware# docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-dtimuralp-a02:~ dtimuralp$ 
+root@ubuntu26:/home/vmware#
 </code></pre>
 
 Seems like no containers to me.
 
 * Check whether if there is any container images in the local repository
 
-docker images
+<pre><code>
+root@ubuntu26:/home/vmware# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+root@ubuntu26:/home/vmware#
+</code></pre>
 
 * Check which Docker networks come by default :
 
