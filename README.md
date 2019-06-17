@@ -10,6 +10,8 @@ Open Container Initiative : Standardize container format and runtime , vendor ne
 
 Containers provide scalable, self healing and portable apps
 
+# Installating Docker
+
 ## Preperation
 
 I used a single Ubuntu 16.04.5 LTS based virtual machine on VMware ESX.
@@ -61,7 +63,7 @@ docker-ce:
   <b>Installed: (none)</b>
   Candidate: 5:18.09.6~3-0~ubuntu-xenial
   Version table:
-     5:18.09.6~3-0~ubuntu-xenial 500
+     5:<b>18.09.6~3-0~ubuntu-xenial</b> 500
         500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
     |
     Output Omitted
@@ -72,14 +74,53 @@ root@ubuntu26:/home/vmware# ^C
 </code></pre>
 
 
-### Install Docker 
+### Installation 
 
 * Install Docker
 
+<pre><code>
+root@ubuntu26:/home/vmware# <b>sudo apt-get install -y docker-ce</b>
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  aufs-tools cgroupfs-mount containerd.io docker-ce-cli libltdl7 pigz
+Suggested packages:
+  mountall
+The following NEW packages will be installed:
+  aufs-tools cgroupfs-mount containerd.io docker-ce docker-ce-cli libltdl7 pigz
+0 upgraded, 7 newly installed, 0 to remove and 161 not upgraded.
+Need to get 50.5 MB of archives.
+After this operation, 243 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu xenial/universe amd64 pigz amd64 2.3.1-2 [61.1 kB]
+Get:2 https://download.docker.com/linux/ubuntu xenial/stable amd64 containerd.io amd64 1.2.5-1 [19.9 MB]
+Get:3 http://us.archive.ubuntu.com/ubuntu xenial/universe amd64 aufs-tools amd64 1:3.2+20130722-1.1ubuntu1 [92.9 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu xenial/universe amd64 cgroupfs-mount all 1.2 [4,970 B]
+Get:5 http://us.archive.ubuntu.com/ubuntu xenial/main amd64 libltdl7 amd64 2.4.6-0.1 [38.3 kB]
+Get:6 https://download.docker.com/linux/ubuntu xenial/stable amd64 docker-ce-cli amd64 5:18.09.6~3-0~ubuntu-xenial [13.0 MB]
+Get:7 https://download.docker.com/linux/ubuntu xenial/stable amd64 docker-ce amd64 5:18.09.6~3-0~ubuntu-xenial [17.4 MB]
+Fetched 50.5 MB in 10s (4,785 kB/s)
+Selecting previously unselected package pigz.
+(Reading database ... 59693 files and directories currently installed.)
+Preparing to unpack .../pigz_2.3.1-2_amd64.deb ...
+|
+|
+OUTPUT OMITTED
+|
+|
+Setting up aufs-tools (1:3.2+20130722-1.1ubuntu1) ...
+Setting up cgroupfs-mount (1.2) ...
+Setting up <b>containerd.io</b> (1.2.5-1) ...
+Setting up <b>docker-ce-cli</b> (5:18.09.6~3-0~ubuntu-xenial) ...
+Setting up <b>docker-ce</b> (5:18.09.6~3-0~ubuntu-xenial) ...
+update-alternatives: using /usr/bin/dockerd-ce to provide /usr/bin/dockerd (dockerd) in auto mode
+Setting up libltdl7:amd64 (2.4.6-0.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu10) ...
+Processing triggers for systemd (229-4ubuntu21.4) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+root@ubuntu26:/home/vmware#
 
-You should see a Docker icon in your task bar in MACOS GUI as shown below
-
-![](dockericon.png)
+</code></pre>
 
 * Check the docker version : :
 
