@@ -12,34 +12,12 @@ Containers provide scalable, self healing and portable apps
 
 ## Installation
 
-### Homebrew
+### Ubuntu 16.04
 
-I am using Homebrew for package management in my Macbook. 
-
-Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple’s macOS operating system. It is known as the missing package manager for macOS. 
-
-For details on how to install it please check [here](https://brew.sh/)
-
-### Install Docker using Homebrew
+### Install Docker 
 
 * Install Docker
 
-Open up a MACOS terminal window and then perform the command as shown below
-
-<pre><code>
-dtimuralp-a02:/ dtimuralp$ <b>brew cask install docker</b>
-</code></pre>
-
-* Run Docker Daemon 
-
-Navigate to Applications folder as shown below
-dtimuralp-a02:~ dtimuralp$cd Applications
-
-Then perform command below
-
-<pre><code>
-dtimuralp-a02:/ dtimuralp$ <b>open docker.app</b>
-</code></pre>
 
 You should see a Docker icon in your task bar in MACOS GUI as shown below
 
