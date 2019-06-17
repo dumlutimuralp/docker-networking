@@ -72,6 +72,8 @@ dtimuralp-a02:Applications dtimuralp$
 
 Docker Client ===== API Calls ===> Docker Server (Daemon) , hence there are two docker versions are shown in this output.
 
+* Check Docker information
+
 <pre><code>
 dtimuralp-a02:~ dtimuralp$ <b>docker info</b>
 Containers: 6
@@ -90,8 +92,8 @@ Plugins:
  Volume: local
  <b>Network: bridge host ipvlan macvlan null overlay</b>
  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
-Swarm: inactive
-Runtimes: runc
+Swarm: <b>inactive</b>
+Runtimes: <b>runc</b> 
 Default Runtime: runc
 Init Binary: docker-init
 containerd version: 9754871865f7fe2f4e74d43e2fc7ccd237edcbce
@@ -101,7 +103,7 @@ Security Options:
  seccomp
   Profile: default
 Kernel Version: 4.9.125-linuxkit
-Operating System: Docker for Mac
+Operating System: <b>Docker for Mac</b>
 OSType: linux
 Architecture: x86_64
 CPUs: 4
@@ -127,6 +129,26 @@ Product License: Community Engine
 
 dtimuralp-a02:~ dtimuralp$ 
 </code></pre>
+
+Docker Swarm shows up as inactive cause I am using a single host.
+
+Runc is Docker' s container runtime which is also donated to the Open Container Project (OCP) . For more info please check [here](https://blog.docker.com/2015/06/runc/)
+
+Docker Operations System is Docker for MAC since I installed it on my MAC.
+
+* Check whether if any containers run by default
+
+<pre><code>
+dtimuralp-a02:~ dtimuralp$ <b>docker ps</b>
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+dtimuralp-a02:~ dtimuralp$ 
+</code></pre>
+
+Seems like no containers to me.
+
+* Check whether if there is any container images in the local repository
+
+docker images
 
 * Check which Docker networks come by default :
 
@@ -187,11 +209,7 @@ dtimuralp-a02:~ dtimuralp$
 
 
 
-docker info
-
 docker run hello-world (automatically exits the container at the end)
-
-docker ps
 
 docker ps -a (shows the stopped containers as well)
 
