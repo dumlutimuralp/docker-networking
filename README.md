@@ -2,15 +2,15 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 
 # Terminology
 
-Dotcloud => Docker (Dock Worker)
+* Dotcloud => Docker (Dock Worker)
 
-To build better -> to ship better -> to deploy (run) better
+* To build better -> to ship better -> to deploy (run) better
 
-Components of Docker is written in Go or Golang
+* Components of Docker is written in Go or Golang
 
-Open Container Initiative : Standardize container format and runtime , vendor neutral, platform neutral (OCI operates under Linux Foundation)
+* Open Container Initiative : Standardize container format and runtime , vendor neutral, platform neutral (OCI operates under Linux Foundation)
 
-Containers provide scalable, self healing and portable apps
+* Containers provide scalable, self healing and portable apps
 
 ## Preperation
 
@@ -177,6 +177,8 @@ root@ubuntu26:/home/vmware#
 
 Docker Client ===== API Calls ===> Docker Server (Daemon) , hence there are two docker versions are shown in this output.
 
+# Docker Basics
+
 * Check Docker information
 
 <pre><code>root@ubuntu26:/home/vmware# <b>docker info</b>
@@ -234,7 +236,11 @@ Docker Swarm shows up as inactive cause I am goint to use a single host for now.
 
 Runc is Docker' s container runtime which is also donated to the Open Container Project (OCP) . For more info please check [here](https://blog.docker.com/2015/06/runc/)
 
-Docker Operations System is Docker for MAC since I installed it on my MAC.
+### Analogies
+
+* Images can be interpreted as "stopped containers" (like VM Templates)
+* Containers can be interpreted as "running images" (like a VM template turned into an actual VM)
+
 
 * Check whether if any containers run by default
 
@@ -268,7 +274,7 @@ root@ubuntu26:/home/vmware#
 
 </code></pre>
 
-Scope "local means, single-host mode. We will focus on the "bridge" for now.
+Scope "local" means, single-host mode. We will focus on the "bridge" for now.
 
 * Inspect the "bridge" config
 
@@ -287,8 +293,8 @@ dtimuralp-a02:~ dtimuralp$ <b>docker inspect bridge</b>
             "Options": null,
             "Config": [
                 {
-                    "Subnet": "172.17.0.0/16",
-                    "Gateway": "172.17.0.1"
+                    <b>"Subnet": "172.17.0.0/16"</b>,
+                    <b>"Gateway": "172.17.0.1"</b>
                 }
             ]
         },
@@ -314,7 +320,17 @@ dtimuralp-a02:~ dtimuralp$ <b>docker inspect bridge</b>
 dtimuralp-a02:~ dtimuralp$ 
 </code></pre>
 
+## CLI CHEATSHEET
 
+*docker run : starts a new container (from a referenced image)  
+*docker pull : copies images to docker host  
+*docker images : lists images on the docker host  
+*docker rmi : removes images from the docker host   
+*docker ps : lists the running containers  
+*docker stop : stops running container  
+*docker rm : removes stopped container  
+
+# APPENDIX
 
 docker run hello-world (automatically exits the container at the end)
 
@@ -349,20 +365,6 @@ docker push dumlutimuralp/nsxdemo:v1
 
 * Edit an existing container by connecting to it via bash shell and then use below command  :
 docker commit container-ID image-name
-
-## ANALOGIES
-images can be interpreted as "stopped containers" (like VM Templates)
-containers can be interpreted as "running images" (like a VM template turned into an actual VM)
-
-##  RECAP
-
-*docker run : starts a new container (from a referenced image)
-*docker pull : copies images to docker host
-*docker images : lists images on the docker host
-*docker rmi : removes images from the docker host 
-*docker ps : lists the running containers
-*docker stop : stops running container
-*docker rm : removes stopped container
 
 
 # Networking Basics
