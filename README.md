@@ -326,8 +326,6 @@ By default Docker (on Ubuntu OS) creates three networks as shown in the above ou
 
 What Docker implements with network named as "bridge" is, a Linux bridge named as "docker0" . This will be verified on Ubuntu shell. 
 
-**Note :** 
-
 * Inspect the Docker network "bridge" config ("docker network inspect < Docker NETWORK NAME > / OR / < Docker NETWORK ID >)
 
 <pre><code>
