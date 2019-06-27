@@ -1185,8 +1185,6 @@ The other thing is since there is a container connected to this recently created
 
 ![](2019-06-27-14-15-07.png)
 
-docker run -d --name test1 --network testbridge -p 5000:8080
-
 # CLI CHEATSHEET
 [Back to Table of Contents](#Table-Of-Contents)
 
