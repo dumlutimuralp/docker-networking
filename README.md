@@ -1,7 +1,7 @@
 This guide provides the basic steps on installing Docker Community Edition on Ubuntu 16.04 and how Docker default networking works from a network engineer point of view. There are tons of articles and Blog pages on Docker itself. Docker' s website has great amount of information on networking [here](https://docs.docker.com/network/) .
 
 [Background](#Background)   
-[Preperation](##Preperation)
+[Preperation](#Preperation)
 
 # Background
 
@@ -15,7 +15,7 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 
 * Containers provide scalable, self healing and portable apps
 
-## Preperation
+# Preperation
 
 I used a single Ubuntu 16.04.5 LTS based virtual machine on VMware ESX. It is configured with a static IP address. As shown below in Ubuntu's shell.
 
