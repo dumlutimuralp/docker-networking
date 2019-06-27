@@ -2,9 +2,9 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 
 [Background](#Background)   
 [Preperation](#Preperation)  
-[Installation](#Installation)  
-[Docker Basics](#Docker Basics)  
-[Docker Networking](#Docker Networking)  
+[Installation](#Installation)    
+[Docker Basics](#Docker Basics)    
+[Docker Networking](#Docker Networking)    
 [Connectivity](#Connectivity)  
 
 # Background
