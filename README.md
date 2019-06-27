@@ -860,8 +860,8 @@ root@ubuntu26:/home/vmware#
 
 <pre><code>
 root@ubuntu26:/home/vmware# <b>ls /var/run/docker/netns</b>
-4532a922fbb7
 <b>68372b922ca7</b>
+4532a922fbb7
 root@ubuntu26:/home/vmware#
 </code></pre>
 
