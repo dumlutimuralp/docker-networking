@@ -1190,7 +1190,14 @@ docker run -d --name test1 --network testbridge -p 5000:8080
 # CLI CHEATSHEET
 [Back to Table of Contents](#Table-Of-Contents)
 
-* docker run : starts a new container (from a referenced image)  
+* docker run : creates a new container from the referenced Docker image
+
+docker run -d --name test1 dumlutimuralp/networktest (this would start the container in background)
+
+docker exec -it < container id > bash (This would attach the terminal to the container that is running in the background. To execute commands in the container)
+
+docker run -it --name test1  dumlutimuralp/networktest /bin/bash (This command would start the container in the foreground and attach the terminal to the container right away, to properly exit, without killing the container, use ctrl + P + Q)
+
 * docker pull : copies images to docker host  
 * docker images : lists images on the docker host  
 * docker rmi : removes images from the docker host   
@@ -1204,9 +1211,11 @@ docker run -d --name test1 --network testbridge -p 5000:8080
 * docker rm $(docker ps -aq) : remove all containers
 * docker rmi $(docker images -q) : remove all Docker images
 * docker login : login to docker hub
-* docker tag : tag a docker image (ie . docker tag < image id > dumlutimuralp/demo:v1)
-* docker push : push an image to docker repository (docker push dumlutimuralp/demo:v1)
-* docker exec -it < container id > bash
-* docker run -d --name dumlu --network testbridge -p 5000:8080 dumlutimuralp/networktest
-* docker run -it --name < testcontainer > ubuntu:latest /bin/bash (To properly exit, without killing the container, ctrl + P + Q)
+* docker tag : tag a docker image (ie . docker tag < image id > dumlutimuralp/networktest:v1)
+* docker push : push an image to docker repository (docker push dumlutimuralp/networktest:v1)
+
+
+
+
+[Back to Table of Contents](#Table-Of-Contents)
 
