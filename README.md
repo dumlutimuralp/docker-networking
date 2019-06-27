@@ -377,7 +377,7 @@ root@ubuntu26:/home/vmware#
 
 **enable_icc:true** means that inter container communication is allowed on this Docker network.
 
-**enable_ip_masquerade: true** | means that "iptables" rules will be modified on this host to apply SNAT (source NAT) for all the containers connected to this Docker network. Docker manipulates "iptables" rules on the host (Ubuntu virtual machine) to provide network isolation for containers from the external network. IPtables will be explained in a seperate article. More info on this in official Docker documentation is [here](https://docs.docker.com/network/iptables/) 
+**enable_ip_masquerade: true** means that "iptables" rules will be modified on this host to apply SNAT (source NAT) for all the containers connected to this Docker network. Docker manipulates "iptables" rules on the host (Ubuntu virtual machine) to provide network isolation for containers from the external network. IPtables will be explained in a seperate article. More info on this in official Docker documentation is [here](https://docs.docker.com/network/iptables/) 
 
 **bridge name : docker0** Notice that the bridge name is "docker0" . This is the name assigned to the Linux bridge which is configured and managed by Docker.
 
