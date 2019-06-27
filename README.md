@@ -1215,9 +1215,3 @@ docker run -it --name test1  dumlutimuralp/networktest /bin/bash (This command w
 * docker login : login to docker hub
 * docker tag : tag a docker image (ie . docker tag < image id > dumlutimuralp/networktest:v1)
 * docker push : push an image to docker repository (docker push dumlutimuralp/networktest:v1)
-
-
-
-
-[Back to Table of Contents](#Table-Of-Contents)
-
