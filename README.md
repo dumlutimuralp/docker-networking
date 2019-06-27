@@ -185,7 +185,7 @@ Jun 17 12:33:25 ubuntu26 systemd[1]: <b>Started Docker Application Container Eng
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-As you may have already noticed in the output above, a default bridge is created with 172.17.0.0/16 subnet. 
+As you may have already noticed in the output above, a default bridge ("docker0") is created with 172.17.0.0/16 subnet. Details of this bridge will be explained later on. 
 
 The first three error messages are about being able to put memory, CPU and swap limitations to containers. Means that the current Kernel version in Ubuntu 16.04 does not seem to support these features. More info [here](https://support.plesk.com/hc/en-us/articles/115004786934-Docker-service-shows-warnings-Your-kernel-does-not-support-cgroup-rt-runtime) and also [here](https://docs.docker.com/config/containers/resource_constraints/). It is ok as these features will not be used in this lab.
 
