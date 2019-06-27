@@ -5,11 +5,16 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 [Background](#Background)   
 [Preperation](#Preperation)  
 [Installation](#Installation)    
-[Docker Basics](#Docker Basics)    
-[Docker Networking](#Docker Networking)    
+[Docker Basics](#Docker-Basics)    
+[Docker Networking](#Docker-Networking)      
 [Connectivity](#Connectivity)  
+[Linux Bridge](#Linux-Bridge)  
+[Creating Containers](#Creating-Containers)  
+[Creating a Docker Bridge Network](#Creating-a-Docker-Bridge-Network)  
+[CLI Cheatsheet](#CLI-Cheatsheet)  
 
 # Background
+[Back to Table of Contents](#Table-Of-Contents)
 
 * Docker is the short version of "Dock Worker"
 
@@ -22,6 +27,7 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 * Containers provide scalable, self healing and portable apps
 
 # Preperation
+[Back to Table of Contents](#Table-Of-Contents)
 
 I used a single Ubuntu 16.04.5 LTS based virtual machine on VMware ESX. It is configured with a static IP address. As shown below in Ubuntu's shell.
 
@@ -32,7 +38,6 @@ root@ubuntu26:~# <b>more /etc/network/interfaces</b>
 
 source /etc/network/interfaces.d/*
 
-# The loopback network interface
 auto lo
 iface lo inet loopback
 auto ens160
@@ -105,7 +110,8 @@ root@ubuntu26:/home/vmware# ^C
 </code></pre>
 
 
-# Installation 
+# Installation
+[Back to Table of Contents](#Table-Of-Contents)
 
 * Install Docker
 
@@ -210,6 +216,7 @@ root@ubuntu26:/home/vmware#
 The logic is Docker Client ===== API Calls ===> Docker Server (Daemon) ; both running on the Ubuntu OS. Hence there are two docker versions are shown in this output, one for client and one for server version.
 
 # Docker Basics
+[Back to Table of Contents](#Table-Of-Contents)
 
 * Check Docker information
 
@@ -296,6 +303,7 @@ Whenever you' d like to build or run a container you need to find and use a base
 ![](2019-06-21-12-15-54.png)
 
 # Docker Networking
+[Back to Table of Contents](#Table-Of-Contents)
 
 Official Docker documentation on "Configuring Networking" can be found [here](https://docs.docker.com/network/) 
 
@@ -462,6 +470,7 @@ root@ubuntu26:/home/vmware#
 </code></pre>
 
 # Connectivity
+[Back to Table of Contents](#Table-Of-Contents)
 
 At this stage, the connectivity diagram in the Ubuntu host is shown below.
 
@@ -478,6 +487,7 @@ root@ubuntu26:/home/vmware#
 </code></pre>
 
 # Linux Bridge
+[Back to Table of Contents](#Table-Of-Contents)
 
 As mentioned a few times already, when Docker is installed, what Docker actually does is creating a Linux bridge named as "docker0". This also creates a new interface in Linux IP stack. This is native Linux bridge logic. Nothing specific. All Docker does is using Linux networking features at the backend.
 
@@ -553,6 +563,7 @@ docker0         8000.0242ed408e96       no
 </code></pre>
 
 # Creating containers
+[Back to Table of Contents](#Table-Of-Contents)
 
 Docker uses various Linux namespace technologies for isolation. (ie user namespace, process namespace, etc.) For networking, it uses Linux network namespaces. Each container runs in its own Linux network namespace which means it has its own IP address, routing table, etc.  Docker creates the content related to each network namespace here on Ubuntu => **_/var/run/docker/netns/_**  
 
@@ -974,6 +985,7 @@ root@ubuntu26:/home/vmware#
 
 
 # Creating a Docker Bridge Network
+[Back to Table of Contents](#Table-Of-Contents)
 
 * Let' s create a new Docker network (using bridge driver)
 
@@ -1175,7 +1187,8 @@ The other thing is since there is a container connected to this recently created
 
 docker run -d --name test1 --network testbridge -p 5000:8080
 
-## CLI CHEATSHEET
+# CLI CHEATSHEET
+[Back to Table of Contents](#Table-Of-Contents)
 
 * docker run : starts a new container (from a referenced image)  
 * docker pull : copies images to docker host  
