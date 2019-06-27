@@ -2,6 +2,10 @@ This guide provides the basic steps on installing Docker Community Edition on Ub
 
 [Background](#Background)   
 [Preperation](#Preperation)
+[Installation](#Installation)
+[Docker Basics](#Docker Basics)
+[Docker Networking](#Docker Networking)
+[Connectivity](#Connectivity)
 
 # Background
 
@@ -99,7 +103,7 @@ root@ubuntu26:/home/vmware# ^C
 </code></pre>
 
 
-## Installation 
+# Installation 
 
 * Install Docker
 
@@ -458,7 +462,7 @@ default via 10.190.16.1 dev ens160 onlink
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-## Connectivity Details
+# Connectivity
 
 At this stage, the connectivity diagram in the Ubuntu host is shown below.
 
@@ -474,7 +478,7 @@ nsid <b>0</b>
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-## Linux Bridge
+# Linux Bridge
 
 As mentioned a few times already, when Docker is installed, what Docker actually does is creating a Linux bridge named as "docker0". This also creates a new interface in Linux IP stack. This is native Linux bridge logic. Nothing specific. All Docker does is using Linux networking features at the backend.
 
