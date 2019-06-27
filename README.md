@@ -1,5 +1,7 @@
 This guide provides the basic steps on installing Docker Community Edition on Ubuntu 16.04 and how Docker default networking works from a network engineer point of view. There are tons of articles and Blog pages on Docker itself. Docker' s website has great amount of information on networking [here](https://docs.docker.com/network/) .
 
+# Table Of Contents
+
 [Background](#Background)   
 [Preperation](#Preperation)  
 [Installation](#Installation)    
@@ -175,12 +177,9 @@ Jun 17 12:33:25 ubuntu26 systemd[1]: <b>Started Docker Application Container Eng
 root@ubuntu26:/home/vmware#
 </code></pre>
 
-
 As you may have already noticed in the output above, a default bridge is created with 172.17.0.0/16 subnet. 
 
 The first three error messages are about being able to put memory, CPU and swap limitations to containers. Means that the current Kernel version in Ubuntu 16.04 does not seem to support these features. More info [here](https://support.plesk.com/hc/en-us/articles/115004786934-Docker-service-shows-warnings-Your-kernel-does-not-support-cgroup-rt-runtime) and also [here](https://docs.docker.com/config/containers/resource_constraints/). It is ok as these features will not be used in this lab.
-
-
 
 * Check the Docker version
 
