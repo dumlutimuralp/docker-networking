@@ -1,3 +1,5 @@
+# Docker Networking Intro
+
 This guide provides the basic steps on installing Docker Community Edition on Ubuntu 16.04 and how Docker default networking works from a network engineer point of view. There are tons of articles and Blog pages on Docker itself. Docker' s website has great amount of information on networking [here](https://docs.docker.com/network/) .
 
 # Table Of Contents
@@ -1196,7 +1198,7 @@ docker run -d --name test1 dumlutimuralp/networktest (this would start the conta
 
 docker exec -it < container id > bash (This would attach the terminal to the container that is running in the background. To execute commands in the container)
 
-docker run -it --name test1  dumlutimuralp/networktest /bin/bash (This command would start the container in the foreground and attach the terminal to the container right away, to properly exit, without killing the container, use ctrl + P + Q)
+docker run -it --name test1  dumlutimuralp/networktest /bin/bash (This command would start the container in the foreground and attach the terminal to the container right away. To properly exit, without killing the container, use ctrl + P + Q)
 
 * docker pull : copies images to docker host  
 * docker images : lists images on the docker host  
