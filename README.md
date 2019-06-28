@@ -20,7 +20,7 @@ This guide provides information about the basic steps on installing Docker Commu
 
 * Docker is the short version of "Dock Worker"
 
-* The ide is to build better -> to ship better -> to deploy (run) better
+* The idea is to build better -> to ship better -> to deploy (run) better
 
 * Components of Docker is written in Go or Golang
 
@@ -31,7 +31,7 @@ This guide provides information about the basic steps on installing Docker Commu
 # Preperation
 [Back to Table of Contents](#Table-Of-Contents)
 
-I used a single Ubuntu 16.04.5 LTS based virtual machine on VMware ESX. It is configured with a static IP address. As shown below in Ubuntu's shell.
+A single Ubuntu 16.04.5 LTS based virtual machine is used in this guide. It is configured with a static IP address. As shown below in Ubuntu's shell.
 
 <pre><code>
 root@ubuntu26:~# <b>more /etc/network/interfaces</b>
