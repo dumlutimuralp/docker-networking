@@ -1,4 +1,4 @@
-# Docker Networking Intro
+# DOCKER Networking Intro
 
 This guide provides information about the basic steps on installing Docker Community Edition on Ubuntu 16.04 and how Docker default networking works from a network engineer point of view. There are tons of blog articles on Docker itself. Docker' s website has great amount of information on networking [here](https://docs.docker.com/network/) .
 
