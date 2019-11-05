@@ -1,4 +1,4 @@
-# DOCKER Networking Intro
+# Docker Networking Intro
 
 This guide provides information about the basic steps on installing Docker Community Edition on Ubuntu 16.04 and how Docker default networking works from a network engineer point of view. There are tons of blog articles on Docker itself. Docker' s website has great amount of information on networking [here](https://docs.docker.com/network/) .
 
@@ -1196,18 +1196,18 @@ docker exec -it < container id > bash (This would attach the terminal to the con
 
 docker run -it --name test1  dumlutimuralp/networktest /bin/bash (This command would start the container in the foreground and attach the terminal to the container right away. To properly exit, without killing the container, use ctrl + P + Q)
 
-* docker pull : copies images to docker host  
-* docker images : lists images on the docker host  
-* docker rmi : removes images from the docker host   
-* docker ps : lists the running containers  
-* docker ps -a : lists all the containers
-* docker stop : stops running container  
-* docker start : starts an already stopped container
-* docker restart :restarts a running container
-* docker rm : removes stopped container  
-* docker stop $(docker ps -aq) : stop all containers
-* docker rm $(docker ps -aq) : remove all containers
-* docker rmi $(docker images -q) : remove all Docker images
-* docker login : login to docker hub
-* docker tag : tag a docker image (ie . docker tag < image id > dumlutimuralp/networktest:v1)
-* docker push : push an image to docker repository (docker push dumlutimuralp/networktest:v1)
+* <b>docker pull</b> : copies images to docker host  
+* <b>docker images</b> : lists images on the docker host  
+* <b>docker rmi</b> : removes images from the docker host   
+* <b>docker ps</b> : lists the running containers  
+* <b>docker ps -a</b> : lists all the containers
+* <b>docker stop</b> : stops running container  
+* <b>docker start</b> : starts an already stopped container
+* <b>docker restart</b> :restarts a running container
+* <b>docker rm</b> : removes stopped container  
+* <b>docker stop $(docker ps -aq)</b> : stop all containers
+* <b>docker rm $(docker ps -aq)</b> : remove all containers
+* <b>docker rmi $(docker images -q)</b> : remove all Docker images
+* <b>docker login</b> : login to docker hub
+* <b>docker tag</b> : tag a docker image (ie . docker tag < image id > dumlutimuralp/networktest:v1)
+* <b>docker push</b> : push an image to docker repository (docker push dumlutimuralp/networktest:v1)
