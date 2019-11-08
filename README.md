@@ -1211,3 +1211,8 @@ The other thing is since there is a container connected to this recently created
 * <b>docker login</b> : login to docker hub
 * <b>docker tag</b> : tag a docker image (ie . docker tag < image id > dumlutimuralp/networktest:v1)
 * <b>docker push</b> : push an image to docker repository (docker push dumlutimuralp/networktest:v1)
+
+* <b>docker network create -d bridge --subnet 10.0.0.1/24 testbridge</b> : creates a docker bridge with the respective ip subnet  
+* <b>docker run -d --name container1 --network testbridge dumlutimuralp/networktest</b> : create a new container an attaches it to the respective docker bridge
+
+* <b>ls /var/run/docker/netns</b> : lists the existing network namespaces creates by docker
