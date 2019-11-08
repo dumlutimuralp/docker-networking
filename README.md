@@ -1188,7 +1188,7 @@ The other thing is since there is a container connected to this recently created
 # CLI CHEATSHEET
 [Back to Table of Contents](#Table-Of-Contents)
 
-* <b>docker run>/b> : creates a new container from the referenced Docker image
+* <b>docker run</b> : creates a new container from the referenced Docker image
 
 <b>docker run -d --name test1 dumlutimuralp/networktest</b> (this would start the container in background)
 
