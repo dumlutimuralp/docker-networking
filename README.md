@@ -1190,11 +1190,11 @@ The other thing is since there is a container connected to this recently created
 
 * <b>docker run</b> : creates a new container from the referenced Docker image
 
-<b>docker run -d --name test1 dumlutimuralp/networktest</b> (this would start the container in background)
+* <b>docker run -d --name test1 dumlutimuralp/networktest</b> (this would start the container in background)
 
-<b>docker exec -it < container id > bash</b> (This would attach the terminal to the container that is running in the background. To execute commands in the container)
+* <b>docker exec -it < container id > bash</b> (This would attach the terminal to the container that is running in the background. To execute commands in the container)
 
-<b>docker run -it --name test1du mlutimuralp/networktest /bin/bash</b> (This command would start the container in the foreground and attach the terminal to the container right away. To properly exit, without killing the container, use ctrl + P + Q)
+* <b>docker run -it --name test1du mlutimuralp/networktest /bin/bash</b> (This command would start the container in the foreground and attach the terminal to the container right away. To properly exit, without killing the container, use ctrl + P + Q)
 
 * <b>docker pull</b> : copies images to docker host  
 * <b>docker images</b> : lists images on the docker host  
